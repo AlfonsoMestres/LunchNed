@@ -4,13 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NewEventComponent } from './components/new-event/new-event.component';
 import { EventCardComponent } from './components/event-card/event-card.component';
+import { NewEventButtonComponent } from './components/new-event-button/new-event-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NewEventComponent,
+    NewEventButtonComponent,
     EventCardComponent
   ],
   imports: [

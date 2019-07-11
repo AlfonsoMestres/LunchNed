@@ -1,18 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { LunchManagerServiceService } from 'src/app/services/lunch-manager-service.service';
 import { CardEvent } from 'src/app/model/card-event.interface';
+import { take, tap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-new-event',
-  templateUrl: './new-event.component.html',
-  styleUrls: ['./new-event.component.scss']
+  selector: 'app-new-event-button',
+  templateUrl: './new-event-button.component.html',
+  styleUrls: ['./new-event-button.component.scss']
 })
-export class NewEventComponent implements OnInit {
+export class NewEventButtonComponent  {
 
   constructor(private lunchManagerService: LunchManagerServiceService) { }
-
-  ngOnInit() {
-  }
 
   generateEvent(): void {
     const cardEventExample: CardEvent = {
@@ -23,7 +21,10 @@ export class NewEventComponent implements OnInit {
       where: 'At my desk',
       what: 'Orgy'
     };
-    this.lunchManagerService.generateEventCard(cardEventExample);
+    this.lunchManagerService.generateEventCard(cardEventExample).pipe(
+      take(1),
+      tap(console.log)
+    ).subscribe();
   }
 
 }

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
-import { catchError, map, retry, tap } from 'rxjs/operators';
+import { catchError, map, retry, tap, mapTo } from 'rxjs/operators';
 
 import { CardEvent } from '../model/card-event.interface';
 
@@ -39,26 +39,19 @@ export class LunchManagerServiceService {
     );
   }
 
-  generateEventCard(cardInfo: CardEvent): void {
+  generateEventCard(cardInfo: CardEvent): Observable<void> {
     const url = `https://o8tyzdwyk8.execute-api.eu-west-1.amazonaws.com/test/events`;
 
-    // const request = {
-    //   id: cardInfo.id,
-    //   host: cardInfo.host,
-    //   when: cardInfo.when,
-    //   where: cardInfo.where,
-    //   what: cardInfo.what
-    // };
+    const request = {
+      host: cardInfo.host,
+      what: cardInfo.what,
+      where: cardInfo.where,
+      when: cardInfo.when
+    };
 
-    this.http.post(url, cardInfo).pipe(
-      tap(() => {
-        console.log('log report post');
-      }),
-      retry(2),
-      catchError(() => {
-        console.log('Error!');
-        return throwError('Failed adding new card event');
-      })
+    return this.http.post(url, request).pipe(
+      mapTo(undefined),
+      catchError((err: HttpErrorResponse) => throwError(err.statusText))
     );
   }
 
