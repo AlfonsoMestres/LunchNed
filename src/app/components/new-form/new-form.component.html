@@ -1,9 +1,10 @@
 <div class="formContainer">
+    <div (click)="sendEvent()" title="Add your new event!">OK</div>
     <div class="form-body">
         <p><label>New food-event!</label></p>
-        <p><input type="text" id="host" placeholder="Your name"/></p>
-        <p><input type="text" id="when" placeholder="13:00 - 24:00"/></p>
-        <p><input type="text" id="what" placeholder="What you want to organize!"/></p>
-        <p><input type="text" id="where" placeholder="In the bar downstais :D"/></p>
+        <p><input (input)="thost=$event.target.value" type="text" class="form-control" placeholder="Your name"></p>
+        <p><input (input)="twhen=$event.target.value" type="text" class="form-control" placeholder="13:00 - 24:00"></p>
+        <p><input (input)="twhat=$event.target.value" type="text" class="form-control" placeholder="What you want to organize!"></p>
+        <p><input (input)="twhere=$event.target.value" type="text" class="form-control" placeholder="In the bar downstais :D"></p>
     </div>
 </div>

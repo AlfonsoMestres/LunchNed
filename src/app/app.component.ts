@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { LunchManagerServiceService } from './services/lunch-manager-service.service';
 import { Subject, Observable } from 'rxjs';
 import { CardEvent } from './model/card-event.interface';
-import { take, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
