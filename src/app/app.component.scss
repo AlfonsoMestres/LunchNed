@@ -5,13 +5,17 @@
 }
 
 .event-button {
-    background-image: url("../assets/new-event.png");
     width: 50px;
     height: 50px;
-    background-color: red;
+    background-color: white;
     position: absolute;
     right: 0;
-    bottom: 0;
+    top: 0;
     margin-right: 40px;
-    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.event-button-img {
+    max-width: 100%; 
+    max-height: 100%;
 }
