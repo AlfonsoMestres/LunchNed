@@ -5,13 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EventCardComponent } from './components/event-card/event-card.component';
-import { NewEventButtonComponent } from './components/new-event-button/new-event-button.component';
+import { NewFormComponent } from './components/new-form/new-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NewEventButtonComponent,
-    EventCardComponent
+    EventCardComponent,
+    NewFormComponent
   ],
   imports: [
     BrowserModule,

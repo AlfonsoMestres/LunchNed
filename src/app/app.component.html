@@ -16,6 +16,8 @@
   </app-event-card>
 </div>
 
-<app-new-event-button></app-new-event-button>
+<div class="event-button" (click)="generateEvent()"> + </div>
+
+<app-new-form *ngIf="showForm"></app-new-form>
 
 <router-outlet></router-outlet>
