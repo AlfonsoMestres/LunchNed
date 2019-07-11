@@ -1,10 +1,14 @@
 .event-card {
+    -webkit-box-flex: 1;
     flex: 1;
     min-width: 400px;
     max-width: 400px;
     min-height: 200px;
     height: 200px;
-    background-color: #fafa00;
+    background-color: #fafa004a;
     overflow: hidden;
-    margin: 15px;
+    margin: 11px;
+    padding-left: 25px;
+    padding-top: 10px;
+    box-shadow: 5px 5px #000000;
 }

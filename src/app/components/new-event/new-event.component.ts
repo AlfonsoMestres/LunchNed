@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LunchManagerServiceService } from 'src/app/services/lunch-manager-service.service';
+import { CardEvent } from 'src/app/model/card-event.interface';
 
 @Component({
   selector: 'app-new-event',
@@ -14,7 +15,15 @@ export class NewEventComponent implements OnInit {
   }
 
   generateEvent(): void {
-    alert('clicked');
+    const cardEventExample: CardEvent = {
+      id: null,
+      host: 'Juan',
+      attendees: '50',
+      when: 'EveryDay',
+      where: 'At my desk',
+      what: 'Orgy'
+    };
+    this.lunchManagerService.generateEventCard(cardEventExample);
   }
 
 }

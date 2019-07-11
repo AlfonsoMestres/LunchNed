@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class EventCardComponent implements OnInit {
   @Input() id: string;
   @Input() host: string;
+  @Input() attendees: string;
   @Input() when: string;
   @Input() where: string;
   @Input() what: string;

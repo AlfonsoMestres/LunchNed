@@ -24,6 +24,7 @@ export class LunchManagerServiceService {
           struc.Items.forEach(element => {
             response.push({
               id: element.id.S,
+              attendees: element.id.S,
               host: element.host.S,
               what: element.what.S,
               when: element.when.S,
@@ -42,18 +43,22 @@ export class LunchManagerServiceService {
     const url = `https://o8tyzdwyk8.execute-api.eu-west-1.amazonaws.com/test/events`;
 
     // const request = {
-    //   host: userDetails.email,
-    //   firstName: userDetails.name,
-    //   lastName: userDetails.lastName,
-    //   roles: [userDetails.role].filter(role => role !== UserRole.Analyst),
-    //   password: userDetails.password,
-    //   confirmPassword: userDetails.password
+    //   id: cardInfo.id,
+    //   host: cardInfo.host,
+    //   when: cardInfo.when,
+    //   where: cardInfo.where,
+    //   what: cardInfo.what
     // };
 
     this.http.post(url, cardInfo).pipe(
-      tap(() => `Adding card event`),
+      tap(() => {
+        console.log('log report post');
+      }),
       retry(2),
-      catchError(() => throwError('Failed adding new card event'))
+      catchError(() => {
+        console.log('Error!');
+        return throwError('Failed adding new card event');
+      })
     );
   }
 

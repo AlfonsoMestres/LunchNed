@@ -8,6 +8,7 @@
   <app-event-card 
     *ngFor="let card of cardRequest" 
     [id]="card.id"
+    [attendees]="card.attendees"
     [host]="card.host"
     [when]="card.when"
     [what]="card.what"
