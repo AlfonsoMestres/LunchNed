@@ -19,3 +19,23 @@
     max-width: 100%; 
     max-height: 100%;
 }
+
+.page-mask {
+    background: rgba(0, 0, 0, 0.23);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9;
+  }
+
+@font-face {
+    font-family: 'OpenSansBold'; /*a name to be used later*/
+    src: url('../assets/OpenSans-Bold.ttf'); /*URL to font*/
+}
+
+@font-face {
+    font-family: 'OpenSans'; /*a name to be used later*/
+    src: url('../assets/OpenSans-Regular.ttf'); /*URL to font*/
+}

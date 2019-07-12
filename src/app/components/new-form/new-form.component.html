@@ -1,10 +1,15 @@
 <div class="formContainer">
-    <div (click)="sendEvent()" title="Add your new event!">OK</div>
+    <div class="close-new-event-form-button" (click)="closeForm()" title="close">
+        <img class="close-new-event-button-img" src="../assets/cancel.png"/>    
+    </div>
     <div class="form-body">
-        <p><label>New food-event!</label></p>
-        <p><input (input)="thost=$event.target.value" type="text" class="form-control" placeholder="Your name"></p>
-        <p><input (input)="twhen=$event.target.value" type="text" class="form-control" placeholder="13:00 - 24:00"></p>
-        <p><input (input)="twhat=$event.target.value" type="text" class="form-control" placeholder="What you want to organize!"></p>
-        <p><input (input)="twhere=$event.target.value" type="text" class="form-control" placeholder="In the bar downstais :D"></p>
+        <p><label>New Event!</label></p>
+        <p><input (input)="hostText" type="text" class="form-control" placeholder="Your name"></p>
+        <p><input (input)="whenText" type="text" class="form-control" placeholder="13:00 - 24:00"></p>
+        <p><input (input)="whatText" type="text" class="form-control" placeholder="What you want to organize!"></p>
+        <p><input (input)="whereText" type="text" class="form-control" placeholder="In the bar downstais :D"></p>
+    </div>
+    <div class="new-event-form-button" (click)="sendEvent()" title="Add your new event!">
+        <img class="event-button-img" src="../assets/newEvent2.png"/>    
     </div>
 </div>

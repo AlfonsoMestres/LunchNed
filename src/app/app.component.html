@@ -1,7 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1> LunchNed! </h1>
-  <img width="300" alt="Angular Logo" src="../assets/SagenedLogo.png">
+  <img width="500" alt="Angular Logo" src="../assets/LunchnedLogo1.png" alt="www.safened.com">
 </div>
 <div class="card-container" 
   *ngIf="cards$ | async as cardRequest">
@@ -16,8 +15,12 @@
   </app-event-card>
 </div>
 
-<div class="event-button" (click)="generateEvent()" title="Add your new event!"><img class = "event-button-img" src="../assets/new-event.png" ></div>
+<div class="event-button" title="Add your new event!" (click)="generateEvent()">
+  <img class = "event-button-img" src="../assets/new-event.png"/>
+</div>
 
-<app-new-form *ngIf="showForm"></app-new-form>
+<app-new-form *ngIf="showForm" (closed)="closeForm()"></app-new-form>
+
+<div class="page-mask" *ngIf="showForm" (click)="closeForm()"></div>
 
 <router-outlet></router-outlet>

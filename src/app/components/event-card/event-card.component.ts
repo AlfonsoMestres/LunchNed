@@ -19,21 +19,4 @@ export class EventCardComponent implements OnInit {
 
   }
 
-  generateEvent(): void {
-    // const cardEventExample: CardEvent = {
-    //   id: null,
-    //   host: 'Juan',
-    //   attendees: '50',
-    //   when: 'EveryDay',
-    //   where: 'At my desk',
-    //   what: 'Orgy'
-    // };
-
-    // this.lunchManagerService.generateEventCard(cardEventExample).pipe(
-    //   take(1),
-    //   tap(console.log)
-    // ).subscribe();
-    this.showForm = true;
-  }
-  
 }

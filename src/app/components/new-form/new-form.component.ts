@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { LunchManagerServiceService } from '../../services/lunch-manager-service.service';
-import { Subject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { CardEvent } from '../../model/card-event.interface';
-import { tap, take } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 
 
 @Component({
@@ -11,30 +11,44 @@ import { tap, take } from 'rxjs/operators';
   styleUrls: ['./new-form.component.scss']
 })
 export class NewFormComponent implements OnInit {
+  @Output() closed: EventEmitter<boolean> = new EventEmitter();
+
   cardRequest: CardEvent[] = [];
   cards$: Observable<CardEvent[]>;
-  showForm: boolean;
+
+  hostText: string;
+  whenText: string;
+  whereText: string;
+  whatText: string;
 
   constructor(private lunchManagerService: LunchManagerServiceService) { }
 
   ngOnInit() {
+    this.hostText = '';
+    this.whenText = '';
+    this.whereText = '';
+    this.whatText = '';
   }
 
   sendEvent(): void {
     const cardEventExample: CardEvent = {
       id: null,
-      host: this.thost,
+      host: this.hostText,
       attendees: '1',
-      when: this.twhen,
-      where: this.twhere,
-      what: this.twhat
+      when: this.whenText,
+      where: this.whereText,
+      what: this.whatText
     };
 
     this.lunchManagerService.generateEventCard(cardEventExample).pipe(
-      take(1),
-      tap(console.log)
+      take(1)
     ).subscribe();
 
     window.location.reload();
   }
+
+  closeForm(): void {
+    this.closed.emit(false);
+  }
+
 }
