@@ -1,8 +1,9 @@
 .header {
-    text-align: center;
     background-image: linear-gradient(to right, #91d3c1, #3aaa8c);
     height: 89px;
     border-bottom: 2px solid #639083;
+    box-shadow: -2px 9px 20px 1px #0000004d;
+    margin-bottom: 10px;
 }
 
 .header-logo {
@@ -19,6 +20,7 @@
     margin-top: 8px;
     font-size: 52px;
     color: #134D71;
+    margin-left: 10px;
 }
 
 .card-container {
