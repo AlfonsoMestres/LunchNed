@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
 
   fetchCards(): void {
     this.cards$ = this.lunchManagerService.fetchEventCards();
+    this.showForm = false;
   }
 
   generateEvent(): void {

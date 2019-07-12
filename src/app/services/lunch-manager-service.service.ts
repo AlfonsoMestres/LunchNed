@@ -27,7 +27,7 @@ export class LunchManagerServiceService {
               attendees: element.attendees ? element.attendees.N : '0',
               host: element.host.S,
               what: element.what.S,
-              when: element.when.S,
+              when: element.when.N,
               where: element.where.S
             } as CardEvent);
           });

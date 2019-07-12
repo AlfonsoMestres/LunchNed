@@ -3,39 +3,13 @@
         <img class="close-new-event-button-img" src="../assets/cancel.png"/>    
     </div>
     <div class="new-form-title">New Event!</div>
-    <form [formGroup]="newEventForm" autocomplete="off" (ngSubmit)="onSubmit()">
-        <div class="form-body">
-            <div class="form-element">
-                <label>Name:</label>
-                <input type="text" #hostName required fromControlName="hostName" placeholder="Your name">
-                <div *ngIf="submitted && fc.hostName.errors" class="invalid-feedback">
-                    <div *ngIf="fc.hostName.errors.required">A name is <strong>required</strong></div>
-                </div>
-            </div>
-            <div class="form-element">
-                <label>When:</label>
-                <input type="datetime-local" #when  required fromControlName="when">
-                <div *ngIf="submitted && fc.when.errors" class="invalid-feedback">
-                    <div *ngIf="fc.when.errors.required">A date is <strong>required</strong></div>
-                </div>
-            </div>
-            <div class="form-element">
-                <label>What:</label>
-                <input type="text" required #what fromControlName="what" placeholder="Event description">
-                <div *ngIf="submitted && fc.what.errors" class="invalid-feedback">
-                    <div *ngIf="fc.what.errors.required">An event description is <strong>required</strong></div>
-                </div>
-            </div>
-            <div class="form-element">
-                <label>What:</label>
-                <input type="text" required #where fromControlName="where" placeholder="Location">
-                <div *ngIf="submitted && fc.where.errors" class="invalid-feedback">
-                    <div *ngIf="fc.where.errors.required">An location is <strong>required</strong></div>
-                </div>
-            </div>
-        </div>
-        <button class="new-event-form-button" title="Add your new event!">
-            <img class="event-button-img" src="../assets/newEvent2.png"/>    
-        </button>
-    </form>
+    <div class="form-body">
+            <p><input (input)="thost=$event.target.value" type="text" class="form-control" placeholder="Your name"></p>
+            <p><input (input)="twhen=$event.target.value" type="datetime-local" class="form-control" placeholder="2019-12-31 23:00"></p>
+            <p><input (input)="twhat=$event.target.value" type="text" class="form-control" placeholder="What you want to organize!"></p>
+            <p><input (input)="twhere=$event.target.value" type="text" class="form-control" placeholder="In the bar downstais :D"></p>
+    </div>
+    <div class="new-event-form-button" title="Add your new event!" (click)="addEvent()">
+        <img class="event-button-img" src="../assets/newEvent2.png"/>    
+    </div>
 </div>
