@@ -7,28 +7,28 @@
         <div class="form-body">
             <div class="form-element">
                 <label>Name:</label>
-                <input type="text" required fromControlName="hostName" placeholder="Your name">
+                <input type="text" #hostName required fromControlName="hostName" placeholder="Your name">
                 <div *ngIf="submitted && fc.hostName.errors" class="invalid-feedback">
                     <div *ngIf="fc.hostName.errors.required">A name is <strong>required</strong></div>
                 </div>
             </div>
             <div class="form-element">
                 <label>When:</label>
-                <input type="datetime-local" required fromControlName="when">
+                <input type="datetime-local" #when  required fromControlName="when">
                 <div *ngIf="submitted && fc.when.errors" class="invalid-feedback">
                     <div *ngIf="fc.when.errors.required">A date is <strong>required</strong></div>
                 </div>
             </div>
             <div class="form-element">
                 <label>What:</label>
-                <input type="text" required fromControlName="what" placeholder="Event description">
+                <input type="text" required #what fromControlName="what" placeholder="Event description">
                 <div *ngIf="submitted && fc.what.errors" class="invalid-feedback">
                     <div *ngIf="fc.what.errors.required">An event description is <strong>required</strong></div>
                 </div>
             </div>
             <div class="form-element">
                 <label>What:</label>
-                <input type="text" required fromControlName="where" placeholder="Location">
+                <input type="text" required #where fromControlName="where" placeholder="Location">
                 <div *ngIf="submitted && fc.where.errors" class="invalid-feedback">
                     <div *ngIf="fc.where.errors.required">An location is <strong>required</strong></div>
                 </div>

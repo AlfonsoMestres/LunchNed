@@ -43,24 +43,6 @@ export class NewFormComponent implements OnInit {
     });
   }
 
-  get fc() { return this.newEventForm.controls; }
-
-  get hostName(): FormControl {
-    return this.newEventForm.get('hostName') as FormControl;
-  }
-
-  get when(): FormControl {
-    return this.newEventForm.get('when') as FormControl;
-  }
-
-  get where(): FormControl {
-    return this.newEventForm.get('where') as FormControl;
-  }
-
-  get what(): FormControl {
-    return this.newEventForm.get('what') as FormControl;
-  }
-
   onSubmit(): void {
     this.submitted = true;
 
@@ -93,6 +75,24 @@ export class NewFormComponent implements OnInit {
   resetForm(): void {
     this.submitted = false;
     this.newEventForm.reset();
+  }
+
+  get fc() { return this.newEventForm.controls; }
+
+  get hostName(): FormControl {
+    return this.newEventForm.get('hostName') as FormControl;
+  }
+
+  get when(): FormControl {
+    return this.newEventForm.get('when') as FormControl;
+  }
+
+  get where(): FormControl {
+    return this.newEventForm.get('where') as FormControl;
+  }
+
+  get what(): FormControl {
+    return this.newEventForm.get('what') as FormControl;
   }
 
 }
