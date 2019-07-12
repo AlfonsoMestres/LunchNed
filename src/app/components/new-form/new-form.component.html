@@ -2,7 +2,7 @@
     <div class="close-new-event-form-button" (click)="closeForm()" title="close">
         <img class="close-new-event-button-img" src="../assets/cancel.png"/>    
     </div>
-    <p><label>New Event!</label></p>
+    <div class="new-form-title">New Event!</div>
     <form [formGroup]="newEventForm" autocomplete="off" (ngSubmit)="onSubmit()">
         <div class="form-body">
             <div class="form-element">

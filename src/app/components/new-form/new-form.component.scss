@@ -10,11 +10,10 @@
     padding-left: 25px;
     padding-top: 10px;
     box-shadow: 5px 5px #0000001a;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-family: "OpenSansBold";
     z-index: 10;
 }
@@ -59,4 +58,13 @@ img.close-new-event-button-img:hover {
     margin-right: 7px;
     margin-top: -1px;
     opacity: 1;
+}
+
+.new-form-title {
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.form-element {
+    margin: 15px 5px;
 }

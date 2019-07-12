@@ -35,13 +35,30 @@ export class NewFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.newEventForm = this.fb.group({
+      hostName: this.fb.control('', [Validators.required]),
+      when: this.fb.control('', [Validators.required]),
+      where: this.fb.control('', [Validators.required]),
+      what: this.fb.control('', [Validators.required])
+    });
   }
 
   get fc() { return this.newEventForm.controls; }
-  get formValues() { return this.newEventForm.value; }
 
   get hostName(): FormControl {
     return this.newEventForm.get('hostName') as FormControl;
+  }
+
+  get when(): FormControl {
+    return this.newEventForm.get('when') as FormControl;
+  }
+
+  get where(): FormControl {
+    return this.newEventForm.get('where') as FormControl;
+  }
+
+  get what(): FormControl {
+    return this.newEventForm.get('what') as FormControl;
   }
 
   onSubmit(): void {
@@ -55,9 +72,9 @@ export class NewFormComponent implements OnInit {
       id: null,
       host: this.hostName.value,
       attendees: '1',
-      when: this.newEventForm.get('when').value,
-      where: this.newEventForm.get('where').value,
-      what: this.newEventForm.get('what').value
+      when: this.when.value,
+      where: this.where.value,
+      what: this.what.value
     };
 
     this.lunchManagerService.generateEventCard(cardEventExample).pipe(
