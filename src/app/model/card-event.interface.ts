@@ -2,7 +2,7 @@ export interface CardEvent {
     id?: string;
     attendees: string;
     host: string;
-    when: Date;
+    when: number;
     what: string;
     where: string;
 }

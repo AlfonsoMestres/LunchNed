@@ -15,6 +15,11 @@ import { CardEvent } from '../../model/card-event.interface';
 export class NewFormComponent {
   submitted = false;
 
+  twhen: string;
+  thost: string;
+  twhere: string;
+  twhat: string;
+
   @Output() closed: EventEmitter<boolean> = new EventEmitter();
   @Output() newEvent: EventEmitter<boolean> = new EventEmitter();
 
@@ -32,7 +37,7 @@ export class NewFormComponent {
       id: null,
       host: this.thost,
       attendees: '1',
-      when: parseInt(unixString, 10),
+      when: parseInt(unixString.toString(), 10),
       where: this.twhere,
       what: this.twhat
     };
