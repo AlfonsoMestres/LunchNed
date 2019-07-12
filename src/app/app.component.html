@@ -11,7 +11,8 @@
     [host]="card.host"
     [when]="card.when"
     [what]="card.what"
-    [where]="card.where">
+    [where]="card.where"
+    (attendee)=fetchCards()>
   </app-event-card>
 </div>
 
@@ -19,7 +20,7 @@
   <img class = "event-button-img" src="../assets/new-event.png"/>
 </div>
 
-<app-new-form *ngIf="showForm" (closed)="closeForm()"></app-new-form>
+<app-new-form *ngIf="showForm" (closed)="closeForm()" (newEvent)="fetchCards()"></app-new-form>
 
 <div class="page-mask" *ngIf="showForm" (click)="closeForm()"></div>
 

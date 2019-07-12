@@ -15,7 +15,11 @@ export class AppComponent implements OnInit {
 
   constructor(private lunchManagerService: LunchManagerServiceService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.fetchCards();
+  }
+
+  fetchCards(): void {
     this.cards$ = this.lunchManagerService.fetchEventCards();
   }
 

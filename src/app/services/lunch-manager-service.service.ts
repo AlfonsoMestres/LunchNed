@@ -24,7 +24,7 @@ export class LunchManagerServiceService {
           struc.Items.forEach(element => {
             response.push({
               id: element.id.S,
-              attendees: element.id.S,
+              attendees: element.attendees ? element.attendees.N : '0',
               host: element.host.S,
               what: element.what.S,
               when: element.when.S,
@@ -50,6 +50,15 @@ export class LunchManagerServiceService {
     };
 
     return this.http.post(url, request).pipe(
+      mapTo(undefined),
+      catchError((err: HttpErrorResponse) => throwError(err.statusText))
+    );
+  }
+
+  addAttendee(eventId: string): Observable<void> {
+    const url = `https://o8tyzdwyk8.execute-api.eu-west-1.amazonaws.com/test/events/${eventId}`;
+
+    return this.http.post(url, null).pipe(
       mapTo(undefined),
       catchError((err: HttpErrorResponse) => throwError(err.statusText))
     );

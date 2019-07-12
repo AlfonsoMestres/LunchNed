@@ -12,6 +12,7 @@ import { take } from 'rxjs/operators';
 })
 export class NewFormComponent implements OnInit {
   @Output() closed: EventEmitter<boolean> = new EventEmitter();
+  @Output() newEvent: EventEmitter<boolean> = new EventEmitter();
 
   cardRequest: CardEvent[] = [];
   cards$: Observable<CardEvent[]>;
@@ -44,7 +45,7 @@ export class NewFormComponent implements OnInit {
       take(1)
     ).subscribe();
 
-    window.location.reload();
+    this.newEvent.emit(true);
   }
 
   closeForm(): void {
