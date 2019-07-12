@@ -2,14 +2,22 @@
     <div class="close-new-event-form-button" (click)="closeForm()" title="close">
         <img class="close-new-event-button-img" src="../assets/cancel.png"/>    
     </div>
-    <div class="form-body">
-        <p><label>New Event!</label></p>
-        <p><input (input)="hostText" type="text" class="form-control" placeholder="Your name"></p>
-        <p><input (input)="whenText" type="text" class="form-control" placeholder="13:00 - 24:00"></p>
-        <p><input (input)="whatText" type="text" class="form-control" placeholder="What you want to organize!"></p>
-        <p><input (input)="whereText" type="text" class="form-control" placeholder="In the bar downstais :D"></p>
-    </div>
-    <div class="new-event-form-button" (click)="sendEvent()" title="Add your new event!">
-        <img class="event-button-img" src="../assets/newEvent2.png"/>    
-    </div>
+    <p><label>New Event!</label></p>
+    <form [formGroup]="newEventForm" autocomplete="off" (ngSubmit)="addEvent()">
+        <div class="form-body">
+            <div class="form-group">
+                <label>Name:</label>
+                <input type="text" required fromControlName="hostName" placeholder="Your name">
+                <div *ngIf="submitted && fc.hostName.errors" class="invalid-feedback">
+                    <div *ngIf="fc.hostName.errors.required">A name is <strong>required</strong></div>
+                </div>
+            </div>
+            <p><input fromControlName="when" type="datetime-local" class="form-control" required></p>
+            <p><input fromControlName="what" type="text" class="form-control" placeholder="What you want to organize!" required></p>
+            <p><input fromControlName="where" type="text" class="form-control" placeholder="In the bar downstais :D" required></p>
+        </div>
+        <button class="new-event-form-button" title="Add your new event!">
+            <img class="event-button-img" src="../assets/newEvent2.png"/>    
+        </button>
+    </form>
 </div>
