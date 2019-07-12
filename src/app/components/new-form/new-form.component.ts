@@ -27,10 +27,10 @@ export class NewFormComponent implements OnInit {
     private fb: FormBuilder,
     private lunchManagerService: LunchManagerServiceService) {
       this.newEventForm = fb.group({
-        hostName: fb.control(['', [Validators.required]]),
-        when: fb.control(['', [Validators.required]]),
-        where: fb.control(['', [Validators.required]]),
-        what: fb.control(['', [Validators.required]])
+        hostName: fb.control('', [Validators.required]),
+        when: fb.control('', [Validators.required]),
+        where: fb.control('', [Validators.required]),
+        what: fb.control('', [Validators.required])
       });
   }
 
@@ -44,7 +44,7 @@ export class NewFormComponent implements OnInit {
     return this.newEventForm.get('hostName') as FormControl;
   }
 
-  addEvent(): void {
+  onSubmit(): void {
     this.submitted = true;
 
     if (!this.newEventForm.valid) {
